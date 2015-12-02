@@ -25,7 +25,7 @@
   "Returns a missile at the same x position as the mouse."
   []
   (assoc (shape :filled
-                :set-color (color :blue)
+                :set-color (color :red)
                 :circle 0 0 10)
          :missile? true
          :x (game :x)
@@ -54,19 +54,19 @@
 (defn create-enemy
   "Returns an enemy at a random position."
   []
-  (assoc (texture "enemy.png")
+  (assoc (texture "execution.png")
          :enemy? true
          :x (rand (game :width))
          :y (game :height)
-         :width 64
-         :height 64))
+         :width 72
+         :height 72))
 
 (defn move-enemies
   "Moves the enemies down."
   [entities]
   (for [e entities]
     (if (:enemy? e)
-      (assoc e :y (- (:y e) 0.5))
+      (assoc e :y (- (:y e) 2.0))
       e)))
 
 (defn remove-enemies

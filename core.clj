@@ -1,4 +1,4 @@
-  (load-game-file "entities.clj")
+(load-game-file "entities.clj")
 
 (def score (atom 0))
 
@@ -22,12 +22,12 @@
   (fn [screen entities]
     (update! screen :renderer (stage) :camera (orthographic))
     (add-timer! screen :spawn-enemy 0 2)
-    (assoc (texture "clojure_logo.gif")
+    (assoc (texture "hatchet.png")
            :player? true
            :x (/ (game :width) 2)
            :y 0
-           :width 100
-           :height 100))
+           :width 124
+           :height 124))
   
   :on-render
   (fn [screen entities]
